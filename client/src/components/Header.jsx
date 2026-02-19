@@ -1,0 +1,54 @@
+export default function Header({ onClearChat, darkMode, onToggleDarkMode }) {
+  return (
+    <header className="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-600 px-4 py-3 shadow-sm">
+      <div className="max-w-3xl mx-auto flex items-center justify-between">
+        <h1 className="text-lg font-bold text-slate-800 dark:text-slate-100">
+          LLM Chat
+        </h1>
+        <div className="flex items-center gap-2">
+          {/* Dark mode toggle */}
+          <button
+            onClick={onToggleDarkMode}
+            className="p-2 rounded-lg text-slate-500 dark:text-slate-400
+                       hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+            title={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+          >
+            {darkMode ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="w-5 h-5"
+              >
+                <path d="M10 2a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 2zM10 15a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 15zM10 7a3 3 0 100 6 3 3 0 000-6zM15.657 5.404a.75.75 0 10-1.06-1.06l-1.061 1.06a.75.75 0 001.06 1.06l1.06-1.06zM6.464 14.596a.75.75 0 10-1.06-1.06l-1.06 1.06a.75.75 0 001.06 1.06l1.06-1.06zM18 10a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0118 10zM5 10a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 015 10zM14.596 15.657a.75.75 0 001.06-1.06l-1.06-1.061a.75.75 0 10-1.06 1.06l1.06 1.06zM5.404 6.464a.75.75 0 001.06-1.06l-1.06-1.06a.75.75 0 10-1.06 1.06l1.06 1.06z" />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                className="w-5 h-5"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M7.455 2.004a.75.75 0 01.26.77 7 7 0 009.958 7.967.75.75 0 011.067.853A8.5 8.5 0 116.647 1.921a.75.75 0 01.808.083z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            )}
+          </button>
+
+          {/* Clear chat */}
+          <button
+            onClick={onClearChat}
+            className="px-3 py-1.5 text-sm rounded-lg text-slate-500 dark:text-slate-400
+                       hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-600 dark:hover:text-red-400
+                       transition-colors"
+          >
+            Clear Chat
+          </button>
+        </div>
+      </div>
+    </header>
+  );
+}
